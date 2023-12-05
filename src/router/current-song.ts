@@ -3,7 +3,7 @@ import { currentlyPlayingSong } from "../lib/spotify";
 
 export const currentSong = new Hono();
 
-currentSong.get('/current-song', async (c) => {
+currentSong.get('/', async (c) => {
     const data = await currentlyPlayingSong()
     
     if (data.status === 204 || data.status > 400) {
