@@ -1,5 +1,4 @@
 import { Hono } from 'hono'
-import { env } from 'hono/adapter'
 import { currentlyPlayingSong } from "../lib/spotify";
 
 export const currentSong = new Hono();
