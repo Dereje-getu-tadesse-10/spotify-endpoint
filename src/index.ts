@@ -1,13 +1,8 @@
-import { Hono } from 'hono'
-import { poweredBy } from 'hono/powered-by'
+import { Hono } from "hono";
+import { currentSong } from "./router/current-song";
 
+const api = new Hono();
 
-const app = new Hono()
+api.route("/api", currentSong);
 
-app.use('*', poweredBy())
-
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
-
-export default app
+export default api;
