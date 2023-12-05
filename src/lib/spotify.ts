@@ -30,3 +30,13 @@ export const currentlyPlayingSong = async () => {
     });
 };
 
+
+export const topTracks = async () => { 
+    const { access_token } = await getAccessToken();
+
+    return fetch(`${API_ENDPOINT}/top/tracks?time_range=short_term&limit=5`, {
+        headers: {
+            Authorization: `Bearer ${access_token}`
+        }
+    });
+}
