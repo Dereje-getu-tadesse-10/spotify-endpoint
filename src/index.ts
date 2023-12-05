@@ -3,6 +3,16 @@ import { currentSong } from "./router/current-song";
 
 const api = new Hono();
 
+export type Song = {
+  current_song: {
+    title: string;
+    artist: string;
+    song_url: string;
+    is_playing: boolean;
+  };
+  is_playing?: boolean;
+};
+
 api.route("/current-song", currentSong);
 
 
@@ -12,3 +22,5 @@ api.notFound((c) => {
     }, 404);
 });
 export default api;
+
+

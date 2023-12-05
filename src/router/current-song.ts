@@ -7,7 +7,6 @@ currentSong.get('/', async (c) => {
     const data = await currentlyPlayingSong()
     
     if (data.status === 204 || data.status > 400) {
-        console.log(data)
         return c.json({
             is_playing: false,
         }, 200);
@@ -17,7 +16,6 @@ currentSong.get('/', async (c) => {
     const song = await data.json() as any
    
     if (song.item === null) {
-        console.log(song)
         return c.json({
             is_playing: false,
         }, 200);
