@@ -1,6 +1,7 @@
 import { config } from "../../config";
 
 const API_ENDPOINT = 'https://api.spotify.com/v1/me'
+const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks?time_range=time_range%3Dmedium_term&limit=5&offset=5`
 
 export const getAccessToken = async (): Promise<{access_token: string}> => {
     const refresh_token: string = config.SPOTIFY_REFRESH_TOKEN;
@@ -31,12 +32,15 @@ export const currentlyPlayingSong = async () => {
 };
 
 
-export const topTracks = async () => { 
+
+
+
+export const topTracks = async () => {
     const { access_token } = await getAccessToken();
 
-    return fetch(`${API_ENDPOINT}/top/tracks?time_range=short_term&limit=5`, {
+    return fetch(TOP_TRACKS_ENDPOINT, {
         headers: {
             Authorization: `Bearer ${access_token}`
         }
     });
-}
+};

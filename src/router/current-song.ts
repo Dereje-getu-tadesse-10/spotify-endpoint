@@ -5,7 +5,7 @@ export const currentSong = new Hono();
 
 currentSong.get('/', async (c) => {
     const data = await currentlyPlayingSong()
-    
+
     if (data.status === 204 || data.status > 400) {
         return c.json({
             is_playing: false,

@@ -13,7 +13,7 @@ export type Song = {
   is_playing?: boolean;
 };
 
-api.route("/current-song", currentSong);
+api.route("/", currentSong);
 
 
 api.notFound((c) => { 

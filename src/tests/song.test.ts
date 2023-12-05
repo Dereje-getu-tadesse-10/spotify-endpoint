@@ -2,7 +2,7 @@ import app, { Song } from '..'
 
 describe('Test the application for current song', () => {
     it('Should correctly handle the current song state', async () => {
-        const res = await app.request('http://localhost/current-song');
+        const res = await app.request('http://localhost');
         const data: Song = await res.json();
 
         if (data.current_song) {
